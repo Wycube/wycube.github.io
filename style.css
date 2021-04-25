@@ -17,7 +17,7 @@
 	  }
 	  
 	  div > h1 {
-		font-size: 40px;
+		font-size: 1cm;
 		color: white;
 		text-align: center;
 		background-color: inherit;
@@ -38,7 +38,7 @@
 	  }
 	
 	  main > a {
-		font-size: 20px;
+		font-size: 0.5cm;
 		text-decoration-line: none;
 		margin: 10px;
 	  }
