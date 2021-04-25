@@ -1,0 +1,44 @@
+* {
+		background-color: darkgray;
+		box-sizing: border-box;
+		outline: none;
+		padding: 0em;
+		margin: 0em;
+	  }
+	  
+	  html {
+		overflow-y: scroll;
+	  }
+	  
+	  div {
+		padding: 10px 0px 10px 10px;
+		border-bottom: 1px solid black;
+		background-color: rgb(50, 50, 50);
+	  }
+	  
+	  div > h1 {
+		font-size: 40px;
+		color: white;
+		text-align: center;
+		background-color: inherit;
+	  }
+	  
+	  div > h1 > a {
+		text-decoration: none;
+		color: white;
+		background-color: inherit;
+	  }
+	  
+	  main {
+		margin: 5px;
+	  }
+	  
+	  main > h2 {
+		border-bottom: 1px solid black;
+	  }
+	
+	  main > a {
+		font-size: 20px;
+		text-decoration-line: none;
+		margin: 10px;
+	  }
