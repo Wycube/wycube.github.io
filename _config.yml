@@ -1,0 +1,10 @@
+permalink: /posts/:title
+
+sass:
+  style: :expanded
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE

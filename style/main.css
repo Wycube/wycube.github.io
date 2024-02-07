@@ -1,0 +1,160 @@
+@import "highlight.css";
+
+code {
+	font-family: "Noto Sans Mono", monospace;
+	color: var(--theme-color-4);
+	background-color: var(--theme-color-3);
+}
+
+:not(.highlight) > code {
+	border-radius: var(--rounding);
+	padding: 0.15rem 0.25rem;
+}
+
+:root {
+	--light-icon: url("../images/light-icon.svg");
+	--light-color-1: #ffffff;
+	--light-color-2: #000000;
+	--light-color-3: #eef0f2;
+	--light-color-4: #3f3f45;
+	
+	--dark-icon: url("../images/dark-icon.svg");
+	--dark-color-1: #1e1e23;
+	--dark-color-2: #e6e6eb;
+	--dark-color-3: #2d2d32;
+	--dark-color-4: #e5e7e9;
+
+	--theme-icon: var(--light-icon);
+	--theme-color-1: var(--light-color-1); /* Background */
+	--theme-color-2: var(--light-color-2); /* Text */
+	--theme-color-3: var(--light-color-3); /* Code Background */
+	--theme-color-4: var(--light-color-4); /* Code Text */
+	--theme-color-5: #1468f0; /* Links */
+	--theme-color-6: #808080; /* Grey Stuff */
+
+	--rounding: 0.2rem;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	color: var(--theme-color-2);
+	background-color: var(--theme-color-1);
+	overflow-y: scroll;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+	display: flex;
+	margin: 0 auto;
+	padding: 1rem;
+	max-width: 50rem;
+	width: 100%;
+	gap: 2rem;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--theme-color-6);
+}
+
+.header-title {
+	font-size: 1.5rem;
+	float: left;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--theme-color-5);
+}
+
+nav {
+	display: flex;
+	gap: 1rem;
+	float: right;
+	align-items: center;
+}
+
+.theme-button {
+	width: 1.5rem;
+	height: 1.5rem;
+	background-image: var(--theme-icon);
+	background-size: cover;
+	margin-left: 1rem;
+}
+
+main {
+	margin: 0 auto;
+	padding: 4rem 1rem;
+	max-width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.post-list-entry {
+	margin-bottom: 1rem;
+}
+
+.post-summary {
+	margin-top: 0.5rem;
+}
+
+.post-header {
+	clear: all;
+}
+
+.post-header h1 {
+	font-size: 1.7rem;
+}
+
+.post-date {
+	font-size: 0.8rem;
+}
+
+/* Markdown Styling */
+.markdown {
+	padding: 2rem 0;
+}
+
+.markdown > *:not(:first-child) {
+	margin-top: 1rem;
+}
+
+.markdown a {
+	color: var(--theme-color-5);
+}
+
+blockquote {
+	color: var(--theme-color-6);
+	padding: 0 1rem;
+	border-left: solid 2px var(--theme-color-6);
+}
+
+blockquote p {
+	margin: 1rem auto;
+}
+
+table, thead, tr, td, th {
+	padding: 0.25rem;
+	border-width: 1px;
+	border-color: var(--theme-color-2);
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+ul, ol {
+	display: flex;
+    flex-direction: column;
+	padding-left: 2rem;
+    gap: 0.25rem;
+}
+
+li {
+	display: list-item;
+}

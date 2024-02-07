@@ -1,18 +1,56 @@
 <!doctype html>
+<script>
+	function switchTheme() {
+		let theme = localStorage.getItem("light-theme") === "true";
+		if(theme) {
+			localStorage.removeItem("light-theme");
+		} else {
+			localStorage.setItem("light-theme", "true");
+		}
+		loadTheme();
+	}
+
+	function loadTheme() {
+		let theme = localStorage.getItem("light-theme") === "true";
+		let root = document.querySelector(":root");
+		
+		if(theme) {
+			root.style.setProperty("--theme-icon", "var(--light-icon)")
+			root.style.setProperty("--theme-color-1", "var(--light-color-1)");
+			root.style.setProperty("--theme-color-2", "var(--light-color-2)");
+			root.style.setProperty("--theme-color-3", "var(--light-color-3)");
+			root.style.setProperty("--theme-color-4", "var(--light-color-4)");
+		} else {
+			root.style.setProperty("--theme-icon", "var(--dark-icon)")
+			root.style.setProperty("--theme-color-1", "var(--dark-color-1)");
+			root.style.setProperty("--theme-color-2", "var(--dark-color-2)");
+			root.style.setProperty("--theme-color-3", "var(--dark-color-3)");
+			root.style.setProperty("--theme-color-4", "var(--dark-color-4)");
+		}
+	}
+
+	loadTheme();
+</script>
+
 <html>
 	<head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="{{site.baseurl}}/style/main.css">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width, initial-scale=1">
+		<title>{% if page.title %}{{ page.title }} - {% endif %}wycube.github.io</title>
 	</head>
 	<body>
 		<header>
-			<h1><a  href="/">Wycube</a></h1>
+			<a class="header-title" href="/">Wycube</a>
+			<nav>
+				<a href="/">Blog</a>
+				<a href="/projects">Projects</a>
+				<a href="/about">About</a>
+				<div class="theme-button" onclick="switchTheme()"></div>
+			</nav>
 		</header>
-		<nav>
-			<a class="nav-button" href="/about">About</a>
-			<a class="nav-button" href="/projects">Projects</a>
-		</nav>
-		{{ content }}
+		<main>
+			{{content}}
+		</main>
 	</body>
 </html>
