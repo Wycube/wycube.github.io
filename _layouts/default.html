@@ -11,21 +11,55 @@
 	}
 
 	function loadTheme() {
-		let theme = localStorage.getItem("light-theme") === "true";
+		let light = localStorage.getItem("light-theme") === "true";
 		let root = document.querySelector(":root");
+		// let light_button = document.getElementById("theme-switcher-light");
+		// let dark_button = document.getElementById("theme-switcher-dark");
 		
-		if(theme) {
-			root.style.setProperty("--theme-icon", "var(--light-icon)")
+		if(light) {
+			// light.classList.remove("hidden");
+			// dark.classList.add("hidden");
+			// console.log("Dark should be hidden now");
+			// root.style.setProperty("--theme-icon", "var(--light-icon)")
 			root.style.setProperty("--theme-color-1", "var(--light-color-1)");
 			root.style.setProperty("--theme-color-2", "var(--light-color-2)");
 			root.style.setProperty("--theme-color-3", "var(--light-color-3)");
 			root.style.setProperty("--theme-color-4", "var(--light-color-4)");
 		} else {
-			root.style.setProperty("--theme-icon", "var(--dark-icon)")
+			// light.classList.add("hidden");
+			// dark.classList.remove("hidden");
+			// root.style.setProperty("--theme-icon", "var(--dark-icon)")
 			root.style.setProperty("--theme-color-1", "var(--dark-color-1)");
 			root.style.setProperty("--theme-color-2", "var(--dark-color-2)");
 			root.style.setProperty("--theme-color-3", "var(--dark-color-3)");
 			root.style.setProperty("--theme-color-4", "var(--dark-color-4)");
+		}
+
+		updateIcon();
+	}
+	
+	function updateIcon() {
+		let light = localStorage.getItem("light-theme") === "true";
+		let light_button = document.getElementById("theme-switcher-light");
+		let dark_button = document.getElementById("theme-switcher-dark");
+		let placeholder = document.getElementById("theme-switcher-placeholder");
+
+		if(light_button === null || dark_button === null) {
+			console.log("Null apparently!");
+			return;
+		}
+
+		//Remove placeholder when buttons have been loaded
+		placeholder.classList.add("hidden");
+
+		if(light) {
+			light_button.classList.add("hidden");
+			dark_button.classList.remove("hidden");
+			console.log("light theme!");
+		} else {
+			light_button.classList.remove("hidden");
+			dark_button.classList.add("hidden");
+			console.log("dark theme!");
 		}
 	}
 
@@ -39,14 +73,18 @@
 		<meta name="viewport" content="width=device_width, initial-scale=1">
 		<title>{% if page.title %}{{ page.title }} - {% endif %}wycube.github.io</title>
 	</head>
-	<body>
+	<body onload="updateIcon()">
 		<header>
 			<a class="header-title" href="/">Wycube</a>
 			<nav>
 				<a href="/">Blog</a>
 				<a href="/projects">Projects</a>
 				<a href="/about">About</a>
-				<div class="theme-button" onclick="switchTheme()"></div>
+				<!-- <div class="theme-button" onclick="switchTheme()"></div>
+				<button onclick="toggleClass()">toggle</button> -->
+				<div id="theme-switcher-light" class="theme-button hidden" onclick="switchTheme()">{% include light-icon.svg %}</div>
+				<div id="theme-switcher-dark" class="theme-button hidden" onclick="switchTheme()">{% include dark-icon.svg %}</div>
+				<div id="theme-switcher-placeholder" class="theme-button"></div>
 			</nav>
 		</header>
 		<main>
