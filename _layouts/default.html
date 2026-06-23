@@ -16,28 +16,10 @@
 	function updateTheme() {
 		let theme = localStorage.getItem("theme");
 		let root = document.querySelector(":root");
-		// let light_button = document.getElementById("theme-switcher-light");
-		// let dark_button = document.getElementById("theme-switcher-dark");
-		console.log(theme);
 
 		if(theme === "light") {
-			// light.classList.remove("hidden");
-			// dark.classList.add("hidden");
-			// console.log("Dark should be hidden now");
-			// root.style.setProperty("--theme-icon", "var(--light-icon)")
-			// root.style.setProperty("--theme-color-1", "var(--light-color-1)");
-			// root.style.setProperty("--theme-color-2", "var(--light-color-2)");
-			// root.style.setProperty("--theme-color-3", "var(--light-color-3)");
-			// root.style.setProperty("--theme-color-4", "var(--light-color-4)");
 			root.style.setProperty("color-scheme", "light");
 		} else if(theme === "dark") {
-			// light.classList.add("hidden");
-			// dark.classList.remove("hidden");
-			// root.style.setProperty("--theme-icon", "var(--dark-icon)")
-			// root.style.setProperty("--theme-color-1", "var(--dark-color-1)");
-			// root.style.setProperty("--theme-color-2", "var(--dark-color-2)");
-			// root.style.setProperty("--theme-color-3", "var(--dark-color-3)");
-			// root.style.setProperty("--theme-color-4", "var(--dark-color-4)");
 			root.style.setProperty("color-scheme", "dark");
 		} else {
 			root.style.setProperty("color-scheme", "light dark");
@@ -59,22 +41,18 @@
 		//Remove placeholder when buttons have been loaded
 		placeholder.classList.add("hidden");
 
-		console.log(theme);
 		if(theme === "light") {
 			auto_button.classList.add("hidden");
 			light_button.classList.remove("hidden");
 			dark_button.classList.add("hidden");
-			console.log("light theme!");
 		} else if(theme === "dark") {
 			auto_button.classList.add("hidden");
 			light_button.classList.add("hidden");
 			dark_button.classList.remove("hidden");
-			console.log("dark theme!");
 		} else {
 			auto_button.classList.remove("hidden");
 			light_button.classList.add("hidden");
 			dark_button.classList.add("hidden");
-			console.log("auto theme!");
 		}
 	}
 </script>
