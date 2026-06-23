@@ -199,5 +199,11 @@ li {
 }
 
 .project-header a {
+	color: var(--theme-color-100);
+	font-size: 0.8rem;
+}
+
+.project-header a:hover {
+	color: var(--theme-color-5);
 	font-size: 0.8rem;
 }
