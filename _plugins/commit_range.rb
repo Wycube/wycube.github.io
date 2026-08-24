@@ -21,7 +21,7 @@ module Jekyll
       else
         first_date = DateTime.parse(`cd temp_clone && git log --reverse --format="%ad" --date=short | head -n 1`)
         latest_date = DateTime.parse(`cd temp_clone && git log -1 --format="%ad" --date=short`)
-        `rm -r temp-clone`
+        `rm -r temp_clone`
       end
 
       "#{first_date.strftime("%b %Y")} - #{latest_date.strftime("%b %Y")}"
